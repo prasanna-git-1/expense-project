@@ -55,9 +55,11 @@ validate $? "downloading files"
 
 cd /app
 
-unzip /tmp/backend.zip
+unzip /tmp/backend.zip &>>$logfile
 validate $? "unziping the downladed files"
 
+npm install -y &>>$logfile
+validate $? "downloading dependices"
 
 
 
