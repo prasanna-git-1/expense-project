@@ -56,11 +56,10 @@ curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expen
 validate $? "downloading backend code"
 
 cd /app
-
-unzip /tmp/backend.zip &>>$logfile
+unzip /tmp/backend.zip 
 validate $? "unziping the backend code"
 
-npm install -y &>>$logfile
+npm install -y 
 validate $? "downloading nodejs dependices"
 
 cp /tmp/expense-project/backend.service /etc/systemd/system/backend.service
