@@ -42,5 +42,5 @@ validate $? "enabling mysqld...."
 systemctl start mysqld
 validate $? "starting mysqld...."
 
-mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$logfile
+mysql_secure_installation --set-root-pass ${mysql-root-password} &>>$logfile
 validate $? "password setup "
