@@ -10,8 +10,8 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-echo "please enter db password:"
-read -s mysql_root_password
+# echo "please enter db password:"
+# read -s mysql_root_password
 
 validate(){
     if [ $1 -ne 0 ]
@@ -78,7 +78,7 @@ validate $? "enabling backend service"
 dnf install mysql -y &>>$logfile
 validate $? "installing mysql"
 
-mysql -h 107.23.240.34 -uroot -p${mysql_root_password} < /app/schema/backend.sql
+mysql -h 107.23.240.34 -uroot -pExpenseApp@1 < /app/schema/backend.sql
 validate $? "schema reloading"
 
 
