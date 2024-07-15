@@ -41,7 +41,7 @@ validate $? "installing nodejs"
 id expense -y &>>$logfile
 if [ $? -ne 0 ]
 then 
-    useradd expense
+    useradd expense -y
     validate $? "creating expense user"
 else 
      echo -e "user already created ....  $G skipping $N"    
