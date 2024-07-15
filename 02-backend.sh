@@ -10,6 +10,8 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+echo "please enter db password:"
+read -s mysql_root_password
 
 validate(){
     if [ $1 -ne 0 ]
@@ -51,21 +53,36 @@ mkdir -p /app
 validate $? "crating app directory"
 
 curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$logfile
-validate $? "downloading files"
+validate $? "downloading backend code"
 
 cd /app
 
 unzip /tmp/backend.zip &>>$logfile
-validate $? "unziping the downladed files"
+validate $? "unziping the backend code"
 
 npm install -y &>>$logfile
-validate $? "downloading dependices"
+validate $? "downloading nodejs dependices"
+
+cp /tmp/expense-project/backend.service /etc/systemd/system/backend.service
+validate $? "copied backend service"
+
+systemctl daemon-reload
+validate $? "deamon reload"
+
+systemctl start backend
+validate $? "starting backend service"
+
+systemctl enable backend
+validate $? "enabling backend service"
+
+dnf install mysql -y
+validate $? "installing mysql"
+
+mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -p${mysql_root_password} < /app/schema/backend.sql
 
 
-
-
-
-
+systemctl restart backend
+validate $? "restating backend server"
 
 
 
