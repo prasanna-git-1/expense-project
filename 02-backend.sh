@@ -75,7 +75,7 @@ validate $? "starting backend service"
 systemctl enable backend
 validate $? "enabling backend service"
 
-dnf install mysql -y
+dnf install mysql -y &>>$logfile
 validate $? "installing mysql"
 
 mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -p${mysql_root_password} < /app/schema/backend.sql
