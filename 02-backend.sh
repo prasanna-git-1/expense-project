@@ -78,7 +78,7 @@ validate $? "enabling backend service"
 dnf install mysql -y &>>$logfile
 validate $? "installing mysql"
 
-mysql -h 107.23.240.34 -uroot -pExpenseApp@1 < /app/schema/backend.sql
+mysql -h 3.95.180.191 -uroot -pExpenseApp@1 < /app/schema/backend.sql
 validate $? "schema reloading"
 
 
