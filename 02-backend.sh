@@ -59,7 +59,7 @@ cd /app
 unzip /tmp/backend.zip 
 validate $? "unziping the backend code"
 
-npm install -y 
+npm install -y
 validate $? "downloading nodejs dependices"
 
 cp /tmp/expense-project/backend.service /etc/systemd/system/backend.service
