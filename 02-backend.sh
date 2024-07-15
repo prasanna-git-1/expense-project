@@ -2,7 +2,7 @@
 
 userid=$(id -u)
 timestamp=$(date +%F-%H-%M-%S)
-script-name=$( echo $0 | cut -d "." -f1)
+script-name=$(echo $0 | cut -d "." -f1 )
 logfile=/tmp/$scriptname-$timestamp.log
 
 R="\e[31m"
@@ -21,7 +21,7 @@ validate(){
     fi        
 }
 
-if [$userid -ne 0 ]
+if [ $userid -ne 0 ]
 then 
    echo "please run as a super user"
    exit 1
