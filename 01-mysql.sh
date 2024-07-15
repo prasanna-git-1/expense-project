@@ -32,7 +32,7 @@ else
     echo "you are a root user"
 fi
 
-dnf install mysql-server -y &>>$logfile
+dnf install mysql-server -y 
 validate $? "installing mysql-server"
 
 
