@@ -44,6 +44,6 @@ then
     useradd expense 
     validate $? "creating expense user"
 else 
-     echo -e "user already created ....  $G skipping $N"    
+     echo -e "user already created ....  $Y skipping $N"    
 fi     
 
