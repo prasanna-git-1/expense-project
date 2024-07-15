@@ -45,7 +45,7 @@ validate $? "starting mysqld...."
 # mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$logfile
 # validate $? "password setup "
 
-mysql -h 107.23.240.34 -uroot ExpenseApp@1 -e "show databases"; &>>$logfile
+mysql -h 3.95.180.191 -uroot ExpenseApp@1 -e "show databases"; &>>$logfile
 if [ $? -ne 0 ]
 then
     mysql_secure_installation --set-root--pass ExpenseApp@1 &>>$logfile
