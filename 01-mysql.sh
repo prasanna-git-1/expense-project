@@ -4,13 +4,19 @@ timestamp=$(date +%F-%H-%M-%S)
 scriptname=$( echo $0 | cut -d "." -f1)
 logfile=/tmp/$scriptname-timestamp.log 
 
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
+
+
 validate(){
     if [ $1 -ne 0 ]
     then 
-        echo "$2 is failure" 
+        echo "$2 .. $R failure $N" 
         exit 1 
     else 
-         echo "$2 is success" 
+         echo "$2 ..$G success $N" 
     fi      
 }         
 
@@ -35,4 +41,4 @@ systemctl start mysqld
 validate $? "starting mysqld...."
 
 mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$logfile
-validate $? "password setup is..."
+validate $? "password setup "
