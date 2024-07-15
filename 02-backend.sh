@@ -47,3 +47,28 @@ else
      echo -e "user already created ....  $Y skipping $N"    
 fi     
 
+mkdir /app
+validate $? "crating app directory"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
