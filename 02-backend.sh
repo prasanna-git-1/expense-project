@@ -52,7 +52,7 @@ fi
 mkdir -p /app
 validate $? "crating app directory"
 
-curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$logfile
+curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip 
 validate $? "downloading backend code"
 
 cd /app
