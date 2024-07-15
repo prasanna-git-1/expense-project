@@ -79,6 +79,7 @@ dnf install mysql -y &>>$logfile
 validate $? "installing mysql"
 
 mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -p${mysql_root_password} < /app/schema/backend.sql
+validate $? "schema reloading"
 
 
 systemctl restart backend
