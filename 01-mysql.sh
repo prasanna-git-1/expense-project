@@ -24,7 +24,12 @@ else
     echo "you are a root user"
 fi
 
+dnf install mysql-server -y
+validate $? "installing mysql-server"
 
 
-dnf install mysql -y &>>$logfile
-validate $? "installing mysql"
+systemctl enable mysqld
+
+systemctl start mysqld
+
+mysql_secure_installation --set-root-pass ExpenseApp@1
